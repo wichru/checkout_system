@@ -1,0 +1,22 @@
+AllCops:
+  CacheRootDirectory: tmp/cache/rubocop_cache/
+  TargetRubyVersion: 3.2.1
+  DefaultFormatter: fuubar
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 15
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'Guardfile'
