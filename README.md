@@ -1,66 +1,65 @@
-# Technical Evaluation Amenitiz Problem to Solve
+# Cash Register System
 
-You are the developer in charge of building a cash register.
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-This app will be able to add products to a cart and compute the total price.
+Welcome to the Cash Register System! This application serves as a simple point of sale system, allowing users to add products to a cart and compute the total price with special discount rules applied.
 
-## Objective
+## Features
 
-Build an application responding to these needs.
+1. **Product Listing**: Displays available products along with their prices.
+2. **Cart Management**: Allows users to add products to their cart and view the cart contents.
+3. **Dynamic Pricing**: Offers special discount rules based on the product combinations in the cart.
 
-By application, we mean:
-- It has a UI, where the user is able to add products to a cart and compute the total price (it can be a simple CLI)
-- It is usable while remaining as simple as possible
-- It is readable
-- It is maintainable
-- It is easily extendable
+### Tech
 
-## Technical requirements
+Cash Register System is built with the following technologies:
 
-- Use any of those languages you are comfortable (Ruby, Python, Go, .Net Core)
-- Covered by tests
-- Following TDD methodology
+* [Ruby 3.2.1]
+* [RSpec] - Rspec tests
+* [Guard && Guard-RSpec] - autotest for rspec
+* [Rubocop] - Ruby static code analyzer
+* [TTY::Prompt] - independent prompt component for TTY toolkit
 
-## Description
+### Setup and Installation
 
-### Assumptions
+To set up the Cash Register System on your local machine:
 
-**Products Registered**
-| Product Code | Name | Price |
-|--|--|--|
-| GR1 |  Green Tea | 3.11€ |
-| SR1 |  Strawberries | 5.00 € |
-| CF1 |  Coffee | 11.23 € |
+```sh
+$ cd checkout_system
+$ bundle install
+```
 
-**Special conditions**
+### Running Script
 
-- The CEO is a big fan of buy-one-get-one-free offers and green tea.
-He wants us to add a  rule to do this.
+```sh
+$ cd checkout_system
+$ ruby cli.rb
+```
 
-- The COO, though, likes low prices and wants people buying strawberries to get a price  discount for bulk purchases.
-If you buy 3 or more strawberries, the price should drop to 4.50€.
+### Tests && code coverage
 
-- The VP of Engineering is a coffee addict.
-If you buy 3 or more coffees, the price of all coffees should drop to 2/3 of the original price.
+```sh
+$ cd checkout_system
+$ rspec spec
+$ open coverage/index.html
+```
 
-Our check-out can scan items in any order, and because the CEO and COO change their minds  often, it needs to be flexible regarding our pricing rules.
+### Guard
+```sh
+$ cd ruby_app
+$ guard --clear
+```
 
-**Test data**
-| Basket | Total price expected |
-|--|--|
-| GR1,GR1 |  3.11€ |
-| SR1,SR1,GR1,SR1 |  16.61€ |
-| GR1,CF1,SR1,CF1,CF1 |  30.57€ |
+### Usage
 
+Upon starting the application, you will be presented with a menu:
 
-**Deliverable**
+1. **Show available products**: Displays the list of products available for purchase.
+2. **Add item to cart**: Allows you to select a product to add to your cart.
+3. **Show your cart**: Displays the contents of your cart along with the total price, considering any discounts.
+4. **Exit**: Closes the application.
 
-The codebase in a shared folder we can access to
-
-**Things we are going to look into or ask about**
-
-- Best practices
-- Commit history
-- Code structure and flow
-- Facility To make some changes to the code
-- A proper readme with good explanation
+### Discounts & Pricing Rules
+* **Green Tea (GR1)**: Buy-one-get-one-free offer.
+* **Strawberries (SR1)**: If you purchase 3 or more strawberries, the price per strawberry drops to 4.50€.
+* **Coffee (CF1)**: For 3 or more coffees, the price of each coffee drops to 2/3 of the original price.
