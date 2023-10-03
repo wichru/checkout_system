@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 gem 'bundler'
 gem 'rspec'
 gem 'tty-prompt'
-gem 'tty-table'
 
 group :development, :test do
   gem 'guard'
